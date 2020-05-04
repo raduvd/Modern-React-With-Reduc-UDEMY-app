@@ -1,17 +1,73 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Faker from 'faker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+
+var App = () => {
+return nonReusableComponent();
+}
+
+ReactDOM.render(<App/>, document.querySelector('#root'));
+
+
+
+function nonReusableComponent () {
+    return (
+    <div className = "ui container comments">
+    
+    {/*Postarea 1*/}
+    <div className = "comment">
+        <a href = "/" className = "avatar">
+            <img alt = "avatar" src = {Faker.image.avatar()}/>
+        </a>
+    </div>
+    
+    <div className = "content">
+        <a href = "/" className = "author">
+           {Faker.name.firstName(1)}
+        </a>
+        <div className = "metadata">
+            <span className = "date">Yesterday</span>
+        </div>
+        <div className = "Text ">{Faker.random.words(3)}</div>
+    </div>
+
+     {/*Postarea 2*/}
+     <div className = "comment">
+        <a href = "/" className = "avatar">
+            <img alt = "avatar" src = {Faker.image.avatar()}/>
+        </a>
+    </div>
+    
+    <div className = "content">
+        <a href = "/" className = "author">
+           {Faker.name.firstName(1)}
+        </a>
+        <div className = "metadata">
+            <span className = "date">Yesterday</span>
+        </div>
+        <div className = "Text ">{Faker.random.words(3)}</div>
+    </div>
+
+
+ {/*Postarea 3*/}
+ <div className = "comment">
+        <a href = "/" className = "avatar">
+            <img alt = "avatar" src = {Faker.image.avatar()}/>
+        </a>
+    </div>
+    
+    <div className = "content">
+        <a href = "/" className = "author">
+           {Faker.name.firstName(1)}
+        </a>
+        <div className = "metadata">
+            <span className = "date">Yesterday</span>
+        </div>
+        <div className = "Text ">Commented: {Faker.random.words(3)}</div>
+    </div>
+    
+</div>
 );
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
