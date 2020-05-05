@@ -7,6 +7,7 @@ import ApprovalCard from './ApprovalCard';
 var App = () => {
     return (
         <div className="ui container comments">
+            <ApprovalCard><div></div></ApprovalCard>
             <ApprovalCard>
                 <SimpleTextComponent />
             </ApprovalCard>
