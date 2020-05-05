@@ -2,18 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Faker from 'faker';
 import CommentDetail from './CommentDetail';
+import ApprovalCard from './ApprovalCard';
 
 var App = () => {
     return (
         <div className="ui container comments">
-            <CommentDetail author="Vancea" timeAgo="Today at 8AM" comment="React is Easy!" image={Faker.image.avatar()} />
-            <CommentDetail author="Radu" timeAgo="Yesterday at 3AM" comment="No way man!" image={Faker.image.avatar()} />
-            <CommentDetail author="Ovidiu" timeAgo="Today at 2AM" comment="Aham!" image={Faker.image.avatar()} />
+            <ApprovalCard>
+                <SimpleTextComponent />
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail
+                    author="Vancea"
+                    timeAgo="Today at 8AM"
+                    comment="React is Easy!"
+                    image={Faker.image.avatar()} />
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail
+                    author="Radu"
+                    timeAgo="Yesterday at 3AM"
+                    comment="No way man!"
+                    image={Faker.image.avatar()} />
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail
+                    author="Ovidiu"
+                    timeAgo="Today at 2AM"
+                    comment="Aham!"
+                    image={Faker.image.avatar()} />
+            </ApprovalCard>
         </div >
     );
 }
 
 ReactDOM.render(<App />, document.querySelector('#root'));
+
+function SimpleTextComponent() {
+    return <div>Are you sure you want to continue?</div>
+}
 
 function nonReusableComponent() {
     return (
