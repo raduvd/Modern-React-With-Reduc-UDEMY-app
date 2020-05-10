@@ -1,0 +1,9 @@
+.image-list {
+    display:grid;
+    grid-auto-rows: 200px;
+    grid-gap: 10px;
+}
+
+.image-list {
+    width: 250px;
+}
