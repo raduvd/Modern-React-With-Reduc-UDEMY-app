@@ -6,16 +6,22 @@ class StreamCreate extends React.Component {
   renderInput = (fieldAtributes) => {
     return (
       <div className="field">
-        <label>{fieldAtributes.labelText}</label>
-        <input
-          value={fieldAtributes.input.value}
-          onChange={fieldAtributes.input.onChange}
-        />
-        <div>{fieldAtributes.meta.error}</div>
+        <label>{fieldAtributes.labeltext}</label>
+        <input {...fieldAtributes.input} />
+        {this.renderError(fieldAtributes.meta)}
       </div>
     );
   };
 
+  renderError(meta) {
+    if (meta.error && meta.touched) {
+      return (
+        <div>
+          <div className="header">{meta.error}</div>
+        </div>
+      );
+    }
+  }
   render = () => {
     return (
       <form
@@ -25,12 +31,12 @@ class StreamCreate extends React.Component {
         <Field
           name="title"
           component={this.renderInput}
-          labelText="Enter Title"
+          labeltext="Enter Title"
         />
         <Field
           name="description"
           component={this.renderInput}
-          labelText="Enter Description"
+          labeltext="Enter Description"
         />
         <button className="ui button primary">Submit</button>
       </form>
